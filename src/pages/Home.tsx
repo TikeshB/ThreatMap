@@ -7,7 +7,17 @@ import { ThreatMap } from "@/components/ThreatMap";
 import { AttackLegend } from "@/components/AttackLegend";
 import { AttackCounter } from "@/components/AttackCounter";
 import { useAttackSimulation } from "@/hooks/useAttackSimulation";
+import Featuresection from "@/components/Featuresection";
 import ShowcaseSection from "@/components/ShowcaseSection";
+
+const viewport = { once: true, amount: 0.25 };
+const easeOut = [0.22, 1, 0.36, 1] as const;
+const fadeUp = {
+  initial: { opacity: 0, y: 16 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport,
+  transition: { duration: 0.6, ease: easeOut },
+};
 
 const features = [
   {
@@ -194,9 +204,9 @@ export default function Home() {
                   key={stat.label}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                  whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                  viewport={viewport}
+                  transition={{ delay: index * 0.08, duration: 0.6, ease: easeOut }}
+                  whileHover={{ y: -3, transition: { duration: 0.25, ease: easeOut } }}
                   className="group relative p-5 rounded-2xl bg-background/80 backdrop-blur-xl border border-border/60 shadow-sm shadow-primary/5 overflow-hidden text-center"
                 >
                   <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -239,26 +249,20 @@ export default function Home() {
         <div className="container mx-auto px-4 lg:px-8 relative">
           <div className="text-center mb-16">
             <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
+              {...fadeUp}
               className="text-primary text-sm font-mono uppercase tracking-widest mb-4 block"
             >
               Why Choose Us
             </motion.span>
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              {...fadeUp}
               className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4"
             >
               Complete Cybersecurity Solutions
             </motion.h2>
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
+              {...fadeUp}
+              transition={{ ...fadeUp.transition, delay: 0.08 }}
               className="text-muted-foreground max-w-2xl mx-auto text-lg"
             >
               From threat detection to compliance management, we provide everything 
@@ -272,17 +276,17 @@ export default function Home() {
                 key={feature.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                viewport={viewport}
+                transition={{ delay: index * 0.08, duration: 0.6, ease: easeOut }}
+                whileHover={{ y: -4, transition: { duration: 0.25, ease: easeOut } }}
                 className="group relative p-6 rounded-2xl bg-background/80 backdrop-blur-xl border border-border/60 shadow-sm shadow-primary/10 hover:shadow-primary/20 transition-all duration-300 overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="relative">
                   <motion.div 
                     className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors"
-                    whileHover={{ rotate: [0, -10, 10, 0] }}
-                    transition={{ duration: 0.5 }}
+                    whileHover={{ scale: 1.04 }}
+                    transition={{ duration: 0.25, ease: easeOut }}
                   >
                     <feature.icon className="w-7 h-7 text-primary" />
                   </motion.div>
@@ -298,6 +302,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Featuresection />
 
       {/* Zero Trust & Automation Showcase Section */}
       <ShowcaseSection />
@@ -317,9 +323,7 @@ export default function Home() {
         />
         <div className="container mx-auto px-4 lg:px-8 relative">
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            {...fadeUp}
             className="text-center mb-12"
           >
             <span className="text-muted-foreground text-sm uppercase tracking-widest">Trusted by Industry Leaders</span>
@@ -330,9 +334,9 @@ export default function Home() {
                 key={client}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 0.7, y: 0 }}
-                whileHover={{ opacity: 1, scale: 1.05 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                whileHover={{ opacity: 1, scale: 1.03 }}
+                viewport={viewport}
+                transition={{ delay: index * 0.06, duration: 0.55, ease: easeOut }}
                 className="px-4 py-2 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 text-muted-foreground font-display text-xs md:text-sm cursor-default shadow-sm hover:border-primary/50 transition-colors"
               >
                 {client}
@@ -358,26 +362,20 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 mb-10">
             <div>
               <motion.span
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                {...fadeUp}
                 className="text-primary text-sm font-mono uppercase tracking-[0.2em] mb-3 block"
               >
                 Client Voices
               </motion.span>
               <motion.h2
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                {...fadeUp}
                 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-3"
               >
                 What Our Clients Say
               </motion.h2>
               <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
+                {...fadeUp}
+                transition={{ ...fadeUp.transition, delay: 0.08 }}
                 className="text-sm md:text-base text-muted-foreground max-w-xl"
               >
                 A snapshot of how security, risk, and compliance leaders describe working with our
@@ -396,8 +394,9 @@ export default function Home() {
                 key={t.company + index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                viewport={viewport}
+                transition={{ delay: index * 0.08, duration: 0.6, ease: easeOut }}
+                whileHover={{ y: -3, transition: { duration: 0.25, ease: easeOut } }}
                 className="relative rounded-2xl bg-background/80 backdrop-blur-xl border border-border/60 shadow-sm shadow-primary/10 p-6 flex flex-col gap-4 overflow-hidden"
               >
                 <div className="absolute right-4 top-4 text-primary/20">
@@ -434,7 +433,8 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={viewport}
+            transition={{ duration: 0.7, ease: easeOut }}
             className="relative rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-transparent border border-primary/30 p-10 lg:p-20 text-center overflow-hidden"
           >
             <motion.div
@@ -450,9 +450,10 @@ export default function Home() {
             />
             <div className="relative z-10">
               <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={viewport}
+                transition={{ duration: 0.5, ease: easeOut, delay: 0.05 }}
                 className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-6"
               >
                 <Shield className="w-8 h-8 text-primary" />
