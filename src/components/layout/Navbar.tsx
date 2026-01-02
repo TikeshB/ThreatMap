@@ -1,7 +1,24 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Sun, Moon } from "lucide-react";
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Sun,
+  Moon,
+  ShieldCheck,
+  Users,
+  ClipboardCheck,
+  AppWindow,
+  Cloud,
+  Smartphone,
+  GraduationCap,
+  Server,
+  UserCog,
+  Briefcase,
+  BadgeCheck,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import LogoLight from "@/data/image.png";
@@ -19,27 +36,16 @@ const navItems = [
       { label: "Application Security", href: "/services/application-security" },
       { label: "Cloud Security", href: "/services/cloud-security" },
       { label: "Mobile App Security", href: "/services/mobile-app-security" },
-      { label: "Training & Awareness", href: "/services/training-and-awareness" },
+      { label: "Training & Awareness", href: "/services/training-awareness" },
       { label: "Infrastructure Security", href: "/services/infrastructure-security" },
-      { label: "vCISO Services", href: "/services/vciso-services" },
-      { label: "Resource as a Service", href: "/services/resource-as-a-service" },
+      { label: "vCISO Services", href: "/services/vciso" },
+      { label: "Resource as a Service", href: "/services/resource-as-service" },
       { label: "Data Protection & Privacy", href: "/services/dpdp" },
     ],
   },
-  { label: "Case Studies", href: "/case-studies" },
-  { 
-    label: "Solutions", 
-    href: "/solutions",
-    children: [
-      { label: "Enterprise Security", href: "/solutions/enterprise" },
-      { label: "Cloud Security", href: "/solutions/cloud" },
-      { label: "Endpoint Protection", href: "/solutions/endpoint" },
-    ]
-  },
-  { label: "Compliance", href: "/compliance" },
   { label: "Threat Map", href: "/threat-map" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Careers", href: "/careers" },
 ];
 
 export const Navbar = () => {
@@ -72,6 +78,23 @@ export const Navbar = () => {
   const isActive = (href: string) => {
     if (href === "/") return location.pathname === "/";
     return location.pathname.startsWith(href);
+  };
+
+  const getServiceIcon = (href: string) => {
+    const map: Record<string, React.ElementType> = {
+      "/services/governance-risk-compliance": ShieldCheck,
+      "/services/third-party-risk-management": Users,
+      "/services/business-continuity-management": ClipboardCheck,
+      "/services/application-security": AppWindow,
+      "/services/cloud-security": Cloud,
+      "/services/mobile-app-security": Smartphone,
+      "/services/training-awareness": GraduationCap,
+      "/services/infrastructure-security": Server,
+      "/services/vciso": UserCog,
+      "/services/resource-as-service": Briefcase,
+      "/services/dpdp": BadgeCheck,
+    };
+    return map[href] ?? ShieldCheck;
   };
 
   return (
@@ -124,17 +147,33 @@ export const Navbar = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute top-full left-0 mt-1 w-56 bg-background/95 backdrop-blur-xl border border-border/50 rounded-lg shadow-xl overflow-hidden"
+                      className="absolute top-full left-0 mt-1 w-[520px] bg-background/95 backdrop-blur-xl border border-border/50 rounded-lg shadow-xl overflow-hidden"
                     >
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.label}
-                          to={child.href}
-                          className="block px-4 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors border-b border-border/20 last:border-0"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                      <div className="grid grid-cols-2 gap-1 p-2">
+                        {item.children.map((child) => {
+                          const Icon = getServiceIcon(child.href);
+                          return (
+                            <Link
+                              key={child.label}
+                              to={child.href}
+                              className={cn(
+                                "flex items-start gap-3 rounded-md border border-border/30 bg-background/40 px-3 py-3 text-sm transition-colors",
+                                isActive(child.href)
+                                  ? "text-primary bg-primary/10 border-primary/30"
+                                  : "text-foreground hover:bg-muted/50"
+                              )}
+                            >
+                              <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-md bg-muted/40 text-foreground">
+                                <Icon className="h-4 w-4" />
+                              </span>
+                              <span className="leading-snug">
+                                <span className="block font-medium">{child.label}</span>
+                                <span className="block text-xs text-muted-foreground">View details</span>
+                              </span>
+                            </Link>
+                          );
+                        })}
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -157,8 +196,12 @@ export const Navbar = () => {
                 {theme === "dark" ? <Moon className="w-3 h-3" /> : <Sun className="w-3 h-3" />}
               </span>
             </button>
-            <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/25">
-              Lulu
+            <Button
+              size="sm"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/25"
+              asChild
+            >
+              <Link to="/contact">Contact</Link>
             </Button>
           </div>
 
@@ -226,8 +269,8 @@ export const Navbar = () => {
                     {theme === "dark" ? <Moon className="w-3 h-3" /> : <Sun className="w-3 h-3" />}
                   </span>
                 </button>
-                <Button className="flex-1 bg-primary text-primary-foreground">
-                  Lulu
+                <Button className="flex-1 bg-primary text-primary-foreground" asChild>
+                  <Link to="/contact">Contact</Link>
                 </Button>
               </div>
             </div>

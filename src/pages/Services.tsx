@@ -2,14 +2,17 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   Shield,
-  Eye,
   Zap,
-  Search,
-  FileCheck,
-  Lock,
-  Server,
   ArrowRight,
   CheckCircle,
+  Users,
+  Network,
+  Database,
+  Code2,
+  Smartphone,
+  BarChart3,
+  Award,
+  Server,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
@@ -18,17 +21,17 @@ import { services } from "@/data/services";
 import type { ServiceSlug } from "@/data/services";
 
 const iconMap: Record<ServiceSlug, LucideIcon> = {
-  "governance-risk-compliance": FileCheck,
-  "third-party-risk-management": Search,
+  "governance-risk-compliance": BarChart3,
+  "third-party-risk-management": Users,
   "business-continuity-management": Shield,
-  "application-security": Lock,
-  "cloud-security": Server,
-  "mobile-app-security": Eye,
-  "training-and-awareness": Zap,
+  "application-security": Code2,
+  "cloud-security": Network,
+  "mobile-app-security": Smartphone,
+  "training-and-awareness": Award,
   "infrastructure-security": Server,
   "vciso-services": Shield,
-  "resource-as-a-service": Server,
-  dpdp: Shield,
+  "resource-as-a-service": Database,
+  dpdp: Code2,
 };
 
 const serviceRouteMap: Record<ServiceSlug, string> = {
@@ -80,52 +83,63 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Heading */}
+      <section className="pb-8">
+        <div className="container mx-auto px-4 lg:px-8">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
+            Our Services
+          </h2>
+          <p className="text-muted-foreground max-w-2xl">
+            Comprehensive cybersecurity and risk management solutions tailored to your needs
+          </p>
+        </div>
+      </section>
+
+      {/* Services Horizontal Cards */}
       <section className="pb-20 lg:pb-32">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8">
-            {services.map((service, index) => {
-              const Icon = iconMap[service.slug] ?? Shield;
-              return (
-              <motion.div
-                key={service.slug}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group relative p-8 rounded-xl bg-muted/30 border border-border/30 hover:border-primary/30 transition-all duration-300"
-              >
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">
-                    <Icon className="w-7 h-7 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-display text-xl font-semibold text-foreground mb-2">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      {service.description}
-                    </p>
-                  </div>
-                </div>
-
-                <ul className="space-y-2 mb-6">
-                  {service.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <CheckCircle className="w-4 h-4 text-primary shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <Button variant="ghost" className="text-primary hover:text-primary hover:bg-primary/10 gap-2" asChild>
-                  <Link to={serviceRouteMap[service.slug]}>
-                    Learn More <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </Button>
-              </motion.div>
-              );
-            })}
+          <div className="overflow-x-auto pb-4 -mx-4 lg:-mx-8 px-4 lg:px-8">
+            <div className="flex gap-6 min-w-min">
+              {services.map((service, index) => {
+                const Icon = iconMap[service.slug] ?? Shield;
+                return (
+                  <motion.div
+                    key={service.slug}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: Math.min(index * 0.05, 0.15) }}
+                    className="group relative flex-shrink-0 w-80 p-6 rounded-2xl bg-background/70 border border-border/40 hover:border-primary/40 hover:bg-background/90 transition-all duration-300 overflow-hidden"
+                  >
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-5 bg-[radial-gradient(circle_at_top,_hsl(var(--primary))_0,_transparent_55%)] transition-opacity" />
+                    <div className="relative space-y-4">
+                      <div className="flex items-start justify-between">
+                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 transition-colors shrink-0">
+                          <Icon className="w-6 h-6 text-primary" />
+                        </div>
+                      </div>
+                      <div>
+                        <h3 className="font-display text-lg font-semibold text-foreground mb-2">
+                          {service.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          {service.description}
+                        </p>
+                      </div>
+                      <Button
+                        variant="ghost"
+                        className="text-primary hover:text-primary hover:bg-primary/10 gap-2 p-0 h-auto font-medium"
+                        asChild
+                      >
+                        <Link to={serviceRouteMap[service.slug]}>
+                          Learn More <ArrowRight className="w-4 h-4" />
+                        </Link>
+                      </Button>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>

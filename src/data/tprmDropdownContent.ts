@@ -129,19 +129,86 @@ Business Benefits
     items: [
       {
         title: "Initial due diligence & onboarding checks",
-        content: `// PASTE CONTENT HERE from RNR website dropdown`
+        content: `What is it?
+Initial due diligence and onboarding checks are the first-line controls used to validate whether a third party is safe to onboard—covering basic security hygiene, privacy posture, compliance alignment, and operational readiness.
+
+Why it matters
+- Prevents onboarding high-risk vendors without safeguards.
+- Creates consistent screening across business units.
+- Establishes a clear audit trail for vendor decisions.
+
+Methodology
+- Vendor classification by criticality and data access
+- Baseline security and privacy questionnaire
+- Evidence review (policies, certifications/attestations where applicable, controls)
+- Risk findings and onboarding decision recommendations
+
+Deliverables
+- Due diligence report with risk rating
+- Required remediation/actions prior to go-live
+- Onboarding checklist and evidence pack`
       },
       {
         title: "Comprehensive security questionnaire reviews",
-        content: `// PASTE CONTENT HERE from RNR website dropdown`
+        content: `What is it?
+A detailed review of vendor questionnaire responses to validate whether controls are real, measurable, and appropriate for the services being provided.
+
+Why it matters
+- Questionnaire answers can be incomplete, inconsistent, or overly optimistic.
+- A structured review reduces false confidence and uncovers gaps.
+- Improves consistency in vendor evaluation across teams.
+
+Methodology
+- Analyze responses for completeness and control maturity
+- Validate claims against submitted evidence
+- Identify compensating controls and required improvements
+- Provide a risk-ranked gap list for remediation
+
+Deliverables
+- Reviewed questionnaire with comments and findings
+- Evidence gaps and follow-up questions
+- Recommended remediation actions and timelines`
       },
       {
         title: "Risk rating based on data sensitivity, access, and business criticality",
-        content: `// PASTE CONTENT HERE from RNR website dropdown`
+        content: `What is it?
+A repeatable risk rating approach to classify vendors by the sensitivity of data processed, level of system access, and how critical the service is to business operations.
+
+Why it matters
+- Helps focus effort on vendors that can cause the most harm.
+- Enables tier-based controls (more scrutiny for higher-risk vendors).
+- Improves reporting and governance visibility.
+
+Methodology
+- Define vendor tiers and scoring factors (data, access, criticality, geography, subcontractors)
+- Apply scoring consistently during onboarding and periodic reviews
+- Map tiers to minimum control requirements and review cadence
+
+Deliverables
+- Vendor tiering model and scoring guide
+- Tier-to-control mapping matrix
+- Risk rating output for assessed vendors`
       },
       {
         title: "Cybersecurity posture assessment of vendors (technical + documentary)",
-        content: `// PASTE CONTENT HERE from RNR website dropdown`
+        content: `What is it?
+An assessment that combines documentation review with technical validation (where feasible and authorized) to understand the vendor’s real security posture.
+
+Why it matters
+- Documentation alone may not reflect operational reality.
+- Identifies practical gaps that increase breach likelihood.
+- Supports stronger contracting and ongoing monitoring.
+
+Methodology
+- Review policies, processes, and security governance documents
+- Assess key security controls (access management, logging, vulnerability management, IR readiness)
+- Optional technical validation based on scope/permissions
+- Provide risk-ranked findings and remediation recommendations
+
+Deliverables
+- Vendor posture assessment report
+- Control gaps and required mitigations
+- Recommendations for contract controls and monitoring cadence`
       }
     ]
   },
@@ -305,15 +372,63 @@ RNR Consulting Pvt. Ltd. is uniquely positioned to deliver impactful GRC and int
     items: [
       {
         title: "Periodic reassessments and compliance checks",
-        content: `// PASTE CONTENT HERE from RNR website dropdown`
+        content: `What is it?
+Scheduled reassessments to ensure a vendor’s controls remain effective over time and continue to meet your internal requirements and contractual obligations.
+
+Why it matters
+- Vendor environments change; controls can drift.
+- Keeps evidence current for audits and governance.
+- Identifies emerging gaps early.
+
+Methodology
+- Tier-based reassessment cadence (e.g., critical vendors more frequently)
+- Refresh questionnaires and validate key evidence
+- Track changes in scope, data access, and subprocessors
+
+Deliverables
+- Reassessment report and updated risk rating
+- Evidence refresh pack
+- Remediation tracking updates`
       },
       {
         title: "Threat intelligence monitoring for key vendors",
-        content: `// PASTE CONTENT HERE from RNR website dropdown`
+        content: `What is it?
+Ongoing monitoring for signals that a vendor may be exposed—such as public breach reports, vulnerability disclosures, or other threat indicators.
+
+Why it matters
+- Provides earlier warning than periodic questionnaires.
+- Helps prioritize follow-ups with vendors quickly.
+- Reduces time-to-response when vendor risk increases.
+
+Methodology
+- Identify critical vendors and monitoring scope
+- Define response playbook for alerts and vendor outreach
+- Correlate signals with vendor tier and business impact
+
+Deliverables
+- Monitoring approach and escalation workflow
+- Alert triage guidance and reporting cadence
+- Recommended actions per risk signal`
       },
       {
         title: "SLA / KPI reviews and incident tracking",
-        content: `// PASTE CONTENT HERE from RNR website dropdown`
+        content: `What is it?
+Operational governance that tracks vendor performance (SLAs/KPIs) and security-relevant incidents to ensure accountability and continuous improvement.
+
+Why it matters
+- Security and availability issues often appear in operational metrics first.
+- Creates a record of performance and incident trends.
+- Supports escalation and contract enforcement when needed.
+
+Methodology
+- Define KPIs/SLAs relevant to the service and risk tier
+- Track incidents, root causes, and corrective actions
+- Report trends to stakeholders with decisions and next steps
+
+Deliverables
+- KPI/SLA tracking template and cadence
+- Incident log structure and reporting format
+- Governance summaries for leadership`
       }
     ]
   },
@@ -323,15 +438,63 @@ RNR Consulting Pvt. Ltd. is uniquely positioned to deliver impactful GRC and int
     items: [
       {
         title: "Risk treatment and mitigation planning",
-        content: `// PASTE CONTENT HERE from RNR website dropdown`
+        content: `What is it?
+Practical planning to reduce third-party risk through corrective actions, compensating controls, timelines, and acceptance/exception processes.
+
+Why it matters
+- Findings without remediation don’t reduce risk.
+- Enables measurable closure and accountability.
+- Aligns risk decisions with business priorities.
+
+Methodology
+- Convert findings into actions with owners and deadlines
+- Define compensating controls where immediate fixes aren’t feasible
+- Track status and validate closure evidence
+
+Deliverables
+- Risk treatment plan and remediation backlog
+- Exception/acceptance workflow guidance
+- Closure validation checklist`
       },
       {
         title: "Support in drafting contract clauses for data protection, cybersecurity, and compliance",
-        content: `// PASTE CONTENT HERE from RNR website dropdown`
+        content: `What is it?
+Support to strengthen vendor contracts with security and privacy requirements—covering minimum controls, breach obligations, audit rights, subcontractor controls, and termination/offboarding expectations.
+
+Why it matters
+- Contracts define enforceable security expectations.
+- Reduces ambiguity during incidents.
+- Protects you from unmanaged subcontractor and data handling risks.
+
+Methodology
+- Align contract language to vendor tier and data sensitivity
+- Define control requirements and evidence expectations
+- Include breach notification, cooperation, and remediation obligations
+
+Deliverables
+- Contract clause library / checklist
+- Tier-based clause recommendations
+- Review notes for procurement and legal teams`
       },
       {
         title: "Escalation framework and governance reporting",
-        content: `// PASTE CONTENT HERE from RNR website dropdown`
+        content: `What is it?
+A governance approach that defines how vendor risks and incidents are escalated, who decides, and how leadership is informed through consistent reporting.
+
+Why it matters
+- Prevents slow or unclear decision-making for high-risk vendors.
+- Provides leadership visibility into critical dependencies.
+- Improves accountability across procurement, IT, risk, and business owners.
+
+Methodology
+- Define escalation triggers (risk tier changes, critical findings, incidents)
+- Establish decision forums, cadence, and RACI
+- Build reporting packs (risk trends, remediation status, top vendor risks)
+
+Deliverables
+- Escalation matrix and RACI
+- Governance reporting templates
+- Leadership-ready summaries and action tracking`
       }
     ]
   }

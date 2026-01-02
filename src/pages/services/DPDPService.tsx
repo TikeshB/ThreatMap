@@ -1,8 +1,15 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Shield, ArrowRight, CheckCircle } from "lucide-react";
+import { Shield, ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Button } from "@/components/ui/button";
+import { dpdpDropdownContent } from "@/data/dpdpDropdownContent";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function DPDPService() {
   return (
@@ -28,53 +35,23 @@ export default function DPDPService() {
             <h2 className="font-display text-3xl font-bold text-foreground mb-12">Our Approach</h2>
             
             <div className="space-y-12">
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-2xl bg-muted/30 border border-border/40 p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-6">DPDP Act Compliance & Implementation</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" /><span className="text-muted-foreground">DPDP Act Gap Assessment & Readiness</span></li>
-                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" /><span className="text-muted-foreground">Privacy Policy & Notice Drafting</span></li>
-                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" /><span className="text-muted-foreground">Data Subject Rights Management Framework</span></li>
-                </ul>
-              </motion.div>
-
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-2xl bg-muted/30 border border-border/40 p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-6">Data Protection Impact Assessments (DPIA)</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" /><span className="text-muted-foreground">DPIA for High-Risk Processing Activities</span></li>
-                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" /><span className="text-muted-foreground">Privacy by Design & Default Implementation</span></li>
-                </ul>
-              </motion.div>
-
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-2xl bg-muted/30 border border-border/40 p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-6">Consent Management Solutions</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" /><span className="text-muted-foreground">Consent Management Platform Implementation</span></li>
-                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" /><span className="text-muted-foreground">Consent Audit & Optimization</span></li>
-                </ul>
-              </motion.div>
-
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-2xl bg-muted/30 border border-border/40 p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-6">Data Breach Response & Incident Management</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" /><span className="text-muted-foreground">Data Breach Response Planning</span></li>
-                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" /><span className="text-muted-foreground">Breach Notification Support</span></li>
-                </ul>
-              </motion.div>
-
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-2xl bg-muted/30 border border-border/40 p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-6">Vendor & Third-Party Data Protection</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" /><span className="text-muted-foreground">Data Processor Agreement Drafting</span></li>
-                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" /><span className="text-muted-foreground">Third-Party Privacy Risk Assessment</span></li>
-                </ul>
-              </motion.div>
-
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-2xl bg-muted/30 border border-border/40 p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-6">Ongoing Compliance & Training</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" /><span className="text-muted-foreground">DPDP Compliance Monitoring & Audits</span></li>
-                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" /><span className="text-muted-foreground">Privacy Awareness Training Programs</span></li>
-                </ul>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="rounded-2xl bg-muted/30 border border-border/40 p-8"
+              >
+                <h3 className="text-2xl font-bold text-foreground mb-6">DPDP Services</h3>
+                <Accordion type="single" collapsible className="w-full">
+                  {Object.entries(dpdpDropdownContent).map(([key, item]) => (
+                    <AccordionItem key={key} value={key}>
+                      <AccordionTrigger className="text-left">{item.title}</AccordionTrigger>
+                      <AccordionContent className="text-sm text-muted-foreground whitespace-pre-line">
+                        {item.content}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
               </motion.div>
             </div>
 

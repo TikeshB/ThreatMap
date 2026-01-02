@@ -5,16 +5,14 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
-import Solutions from "./pages/Solutions";
-import Compliance from "./pages/Compliance";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ThreatMapPage from "./pages/ThreatMap";
-import CaseStudies from "./pages/CaseStudies";
+import Careers from "./pages/Careers";
 import NotFound from "./pages/NotFound";
 import GRCService from "./pages/services/GRCService";
 import TPRMService from "./pages/services/TPRMService";
-import BCMSService from "./pages/services/BCMSService";
+import BCMSService from "./pages/services/BCMSServiceNew";
 import ApplicationSecurityService from "./pages/services/ApplicationSecurityService";
 import CloudSecurityService from "./pages/services/CloudSecurityService";
 import MobileAppSecurityService from "./pages/services/MobileAppSecurityService";
@@ -46,13 +44,10 @@ const App = () => (
           <Route path="/services/vciso" element={<VCISOService />} />
           <Route path="/services/resource-as-service" element={<ResourceAsServiceService />} />
           <Route path="/services/dpdp" element={<DPDPService />} />
-          <Route path="/solutions" element={<Solutions />} />
-          <Route path="/solutions/:slug" element={<Solutions />} />
-          <Route path="/compliance" element={<Compliance />} />
-          <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/threat-map" element={<ThreatMapPage />} />
+          <Route path="/careers" element={<Careers />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

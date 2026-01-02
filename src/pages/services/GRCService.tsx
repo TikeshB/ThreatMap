@@ -1,21 +1,17 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FileCheck, ArrowRight, CheckCircle, ChevronDown } from "lucide-react";
+import { FileCheck, ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Button } from "@/components/ui/button";
 import { grcDropdownContent } from "@/data/grcDropdownContent";
-import { useState } from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function GRCService() {
-  const [expandedItems, setExpandedItems] = useState<string[]>([]);
-
-  const toggleItem = (itemKey: string) => {
-    setExpandedItems(prev => 
-      prev.includes(itemKey) 
-        ? prev.filter(key => key !== itemKey)
-        : [...prev, itemKey]
-    );
-  };
   return (
     <PageLayout>
       {/* Hero */}
@@ -72,38 +68,16 @@ export default function GRCService() {
                 className="rounded-2xl bg-muted/30 border border-border/40 p-8"
               >
                 <h3 className="text-2xl font-bold text-foreground mb-6">Governance Services</h3>
-                <ul className="space-y-4">
+                <Accordion type="single" collapsible className="w-full">
                   {Object.entries(grcDropdownContent.governanceServices).map(([key, item]) => (
-                    <li key={key} className="border-b border-border/20 pb-4 last:border-0">
-                      <button
-                        onClick={() => toggleItem(`gov-${key}`)}
-                        className="w-full flex items-start justify-between gap-3 text-left group"
-                      >
-                        <div className="flex items-start gap-3 flex-1">
-                          <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                          <span className="text-muted-foreground group-hover:text-foreground transition-colors">
-                            {item.title}
-                          </span>
-                        </div>
-                        <ChevronDown 
-                          className={`w-5 h-5 text-muted-foreground transition-transform shrink-0 mt-0.5 ${
-                            expandedItems.includes(`gov-${key}`) ? 'rotate-180' : ''
-                          }`}
-                        />
-                      </button>
-                      {expandedItems.includes(`gov-${key}`) && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          className="mt-3 ml-8 text-sm text-muted-foreground whitespace-pre-line"
-                        >
-                          {item.content}
-                        </motion.div>
-                      )}
-                    </li>
+                    <AccordionItem key={key} value={`gov-${key}`}>
+                      <AccordionTrigger className="text-left">{item.title}</AccordionTrigger>
+                      <AccordionContent className="text-sm text-muted-foreground whitespace-pre-line">
+                        {item.content}
+                      </AccordionContent>
+                    </AccordionItem>
                   ))}
-                </ul>
+                </Accordion>
               </motion.div>
 
               {/* Risk Management Services */}
@@ -114,38 +88,16 @@ export default function GRCService() {
                 className="rounded-2xl bg-muted/30 border border-border/40 p-8"
               >
                 <h3 className="text-2xl font-bold text-foreground mb-6">Risk Management Services</h3>
-                <ul className="space-y-4">
+                <Accordion type="single" collapsible className="w-full">
                   {Object.entries(grcDropdownContent.riskManagementServices).map(([key, item]) => (
-                    <li key={key} className="border-b border-border/20 pb-4 last:border-0">
-                      <button
-                        onClick={() => toggleItem(`risk-${key}`)}
-                        className="w-full flex items-start justify-between gap-3 text-left group"
-                      >
-                        <div className="flex items-start gap-3 flex-1">
-                          <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                          <span className="text-muted-foreground group-hover:text-foreground transition-colors">
-                            {item.title}
-                          </span>
-                        </div>
-                        <ChevronDown 
-                          className={`w-5 h-5 text-muted-foreground transition-transform shrink-0 mt-0.5 ${
-                            expandedItems.includes(`risk-${key}`) ? 'rotate-180' : ''
-                          }`}
-                        />
-                      </button>
-                      {expandedItems.includes(`risk-${key}`) && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          className="mt-3 ml-8 text-sm text-muted-foreground whitespace-pre-line"
-                        >
-                          {item.content}
-                        </motion.div>
-                      )}
-                    </li>
+                    <AccordionItem key={key} value={`risk-${key}`}>
+                      <AccordionTrigger className="text-left">{item.title}</AccordionTrigger>
+                      <AccordionContent className="text-sm text-muted-foreground whitespace-pre-line">
+                        {item.content}
+                      </AccordionContent>
+                    </AccordionItem>
                   ))}
-                </ul>
+                </Accordion>
               </motion.div>
 
               {/* Compliance Services */}
@@ -156,38 +108,16 @@ export default function GRCService() {
                 className="rounded-2xl bg-muted/30 border border-border/40 p-8"
               >
                 <h3 className="text-2xl font-bold text-foreground mb-6">Compliance Services and Audit Services</h3>
-                <ul className="space-y-4">
+                <Accordion type="single" collapsible className="w-full">
                   {Object.entries(grcDropdownContent.complianceServices).map(([key, item]) => (
-                    <li key={key} className="border-b border-border/20 pb-4 last:border-0">
-                      <button
-                        onClick={() => toggleItem(`comp-${key}`)}
-                        className="w-full flex items-start justify-between gap-3 text-left group"
-                      >
-                        <div className="flex items-start gap-3 flex-1">
-                          <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                          <span className="text-muted-foreground group-hover:text-foreground transition-colors">
-                            {item.title}
-                          </span>
-                        </div>
-                        <ChevronDown 
-                          className={`w-5 h-5 text-muted-foreground transition-transform shrink-0 mt-0.5 ${
-                            expandedItems.includes(`comp-${key}`) ? 'rotate-180' : ''
-                          }`}
-                        />
-                      </button>
-                      {expandedItems.includes(`comp-${key}`) && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          className="mt-3 ml-8 text-sm text-muted-foreground whitespace-pre-line"
-                        >
-                          {item.content}
-                        </motion.div>
-                      )}
-                    </li>
+                    <AccordionItem key={key} value={`comp-${key}`}>
+                      <AccordionTrigger className="text-left">{item.title}</AccordionTrigger>
+                      <AccordionContent className="text-sm text-muted-foreground whitespace-pre-line">
+                        {item.content}
+                      </AccordionContent>
+                    </AccordionItem>
                   ))}
-                </ul>
+                </Accordion>
               </motion.div>
             </div>
 

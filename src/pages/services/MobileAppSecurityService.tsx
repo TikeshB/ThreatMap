@@ -1,8 +1,60 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Eye, ArrowRight, CheckCircle } from "lucide-react";
+import { Eye, ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Button } from "@/components/ui/button";
+import { ServiceModulesAccordion } from "@/components/ServiceModulesAccordion";
+
+const mobileModules = [
+  {
+    id: "mobile-vapt",
+    title: "Mobile Application VAPT (Android / iOS)",
+    sections: {
+      "What is it?":
+        "A structured security assessment of your mobile application to identify and validate vulnerabilities across storage, authentication, session handling, APIs, cryptography, and runtime behavior—aligned with OWASP MASVS practices.",
+      "Why it matters": [
+        "Protects sensitive user and business data.",
+        "Reduces risk of account takeover and unauthorized access.",
+        "Improves security posture prior to audits and releases.",
+      ],
+      "Our methodology": [
+        "Pre-engagement scoping and artifact collection",
+        "Static analysis (SAST) and binary review",
+        "Dynamic testing (DAST) and runtime validation",
+        "API and network communication assessment",
+        "Reporting with remediation guidance",
+      ],
+      Deliverables: [
+        "Executive summary report",
+        "Technical vulnerability report with severity and fixes",
+        "Optional walkthrough session",
+      ],
+    },
+  },
+  {
+    id: "source-code-review",
+    title: "Mobile Source Code Review",
+    sections: {
+      "What is it?":
+        "A manual + tool-assisted review of mobile application source code to detect insecure coding patterns, secrets exposure, weak crypto usage, insecure storage, and risky third-party SDK usage.",
+      "Why it matters": [
+        "Finds issues scanners may miss (logic flaws, unsafe patterns).",
+        "Catches hardcoded keys, credentials, and sensitive data exposure.",
+        "Reduces cost by fixing earlier in the development lifecycle.",
+      ],
+      Methodology: [
+        "Access setup (code, build, configs, docs)",
+        "Automated scanning + manual deep review",
+        "Risk categorization and OWASP MASVS mapping",
+        "Fix-oriented reporting and developer support",
+      ],
+      Deliverables: [
+        "Findings report with evidence and remediation guidance",
+        "Priority fixes list and secure coding recommendations",
+      ],
+    },
+  },
+];
 
 export default function MobileAppSecurityService() {
   return (
@@ -27,63 +79,14 @@ export default function MobileAppSecurityService() {
           <div className="max-w-4xl">
             <h2 className="font-display text-3xl font-bold text-foreground mb-12">Our Approach</h2>
             <div className="space-y-12">
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-2xl bg-muted/30 border border-border/40 p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-6">Mobile Vulnerability Assessment Penetration Testing (VAPT)</h3>
-                <div className="space-y-4 text-muted-foreground">
-                  <strong>What is Mobile Application VAPT?</strong>
-                  <div>Mobile Application VAPT is a specialized security service aimed at identifying and addressing vulnerabilities in Android and iOS applications. It involves a thorough assessment of the app’s architecture, code behavior, and communication with back-end services, focusing on issues like insecure data storage, session handling, broken authentication, insecure APIs, weak encryption, and exposure of sensitive information.</div>
-                  <strong>Vulnerability Assessment (VA)</strong>
-                  <div>Systematic process to identify, analyze, and report security weaknesses such as outdated software, misconfigurations, weak access controls, or missing patches.</div>
-                  <strong>Penetration Testing (PT)</strong>
-                  <div>Controlled, simulated cyberattack to actively attempt to exploit detected weaknesses, just like a real attacker would.</div>
-                  <strong>Why is it important?</strong>
-                  <ul className="list-disc pl-5">
-                    <li>Protects sensitive user data (passwords, credit card info, personal info)</li>
-                    <li>Prevents unauthorized access or data breaches</li>
-                    <li>Ensures compliance with OWASP Mobile Top 10, MASVS, GDPR, etc.</li>
-                    <li>Builds user trust and app store credibility</li>
-                  </ul>
-                  <strong>Our Methodology</strong>
-                  <ol className="list-decimal pl-5">
-                    <li>Pre-Engagement & Scoping: Define scope, test type, gather artifacts</li>
-                    <li>Reconnaissance / Information Gathering</li>
-                    <li>Static Application Security Testing (SAST)</li>
-                    <li>Dynamic Application Security Testing (DAST)</li>
-                    <li>Reporting & Remediation Guidance: Detailed report with practical solutions</li>
-                  </ol>
-                  <strong>What we deliver</strong>
-                  <ol className="list-decimal pl-5">
-                    <li>Scope Document / Proposal / SOW</li>
-                    <li>Technical Vulnerability Report</li>
-                    <li>Executive Summary Report</li>
-                    <li>Walkthrough Session (Optional)</li>
-                  </ol>
-                </div>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-2xl bg-muted/30 border border-border/40 p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-6">Application Source Code Review</h3>
-                <div className="space-y-4 text-muted-foreground">
-                  <strong>What is Mobile Source Code Review?</strong>
-                  <div>Mobile Source Code Review is a detailed manual and automated analysis of your mobile app’s source code to detect security vulnerabilities, weak coding practices, and hidden risks before they can be exploited.</div>
-                  <strong>Why is Source Code Review important?</strong>
-                  <ul className="list-disc pl-5">
-                    <li>Better Security Assurance: Deep visibility into app security, not just surface-level</li>
-                    <li>Detect Hidden Risks: Find hardcoded credentials, API keys, sensitive data</li>
-                    <li>Catch Insecure Coding Practices: Prevent data leaks, broken authentication, insecure storage</li>
-                    <li>Uncover Third-party SDK Issues: Check for vulnerabilities in external libraries</li>
-                    <li>Meets Compliance Requirements: Required for audits, certifications, regulations</li>
-                    <li>Improves Developer Awareness: Shows where to fix and how to write secure code</li>
-                    <li>Reduces Cost of Future Fixes: Cheaper to fix during development than after release</li>
-                  </ul>
-                  <strong>Methodology</strong>
-                  <ol className="list-decimal pl-5">
-                    <li>Access Setup: Source code, docs, build environment</li>
-                    <li>Automated Scanning: Tools like MobSF, SonarQube, Semgrep</li>
-                    <li>Manual Code Review: Auth logic, API handling, secrets, storage, SDKs</li>
-                    <li>Risk Categorization: Severity, OWASP MASVS & CWE mapping, PoC</li>
-                    <li>Reporting: Detailed report with file names, code snippets, risks, fixes</li>
-                  </ol>
-                </div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="rounded-2xl bg-muted/30 border border-border/40 p-8"
+              >
+                <h3 className="text-2xl font-bold text-foreground mb-6">Mobile App Security Services</h3>
+                <ServiceModulesAccordion modules={mobileModules} />
               </motion.div>
             </div>
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-12 flex flex-wrap gap-4">

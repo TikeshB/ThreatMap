@@ -1,22 +1,17 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Search, ArrowRight, CheckCircle, ChevronDown } from "lucide-react";
+import { Search, ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Button } from "@/components/ui/button";
 import { tprmDropdownContent } from "@/data/tprmDropdownContent";
-import { useState } from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function TPRMService() {
-  const [expandedItems, setExpandedItems] = useState<string[]>([]);
-
-  const toggleItem = (itemKey: string) => {
-    setExpandedItems(prev => 
-      prev.includes(itemKey) 
-        ? prev.filter(key => key !== itemKey)
-        : [...prev, itemKey]
-    );
-  };
-
   return (
     <PageLayout>
       <section className="py-20 lg:py-28">
@@ -55,41 +50,19 @@ export default function TPRMService() {
                   className="rounded-2xl bg-muted/30 border border-border/40 p-8"
                 >
                   <h3 className="text-2xl font-bold text-foreground mb-6">{section.title}</h3>
-                  <ul className="space-y-4">
+                  <Accordion type="single" collapsible className="w-full">
                     {section.items.map((item, idx) => {
                       const itemKey = `${sectionKey}-${idx}`;
                       return (
-                        <li key={idx} className="border-b border-border/20 pb-4 last:border-0">
-                          <button
-                            onClick={() => toggleItem(itemKey)}
-                            className="w-full flex items-start justify-between gap-3 text-left group"
-                          >
-                            <div className="flex items-start gap-3 flex-1">
-                              <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                              <span className="text-muted-foreground group-hover:text-foreground transition-colors">
-                                {item.title}
-                              </span>
-                            </div>
-                            <ChevronDown 
-                              className={`w-5 h-5 text-muted-foreground transition-transform shrink-0 mt-0.5 ${
-                                expandedItems.includes(itemKey) ? 'rotate-180' : ''
-                              }`}
-                            />
-                          </button>
-                          {expandedItems.includes(itemKey) && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: "auto" }}
-                              exit={{ opacity: 0, height: 0 }}
-                              className="mt-3 ml-8 text-sm text-muted-foreground whitespace-pre-line"
-                            >
-                              {item.content}
-                            </motion.div>
-                          )}
-                        </li>
+                        <AccordionItem key={itemKey} value={itemKey}>
+                          <AccordionTrigger className="text-left">{item.title}</AccordionTrigger>
+                          <AccordionContent className="text-sm text-muted-foreground whitespace-pre-line">
+                            {item.content}
+                          </AccordionContent>
+                        </AccordionItem>
                       );
                     })}
-                  </ul>
+                  </Accordion>
                 </motion.div>
               ))}
             </div>

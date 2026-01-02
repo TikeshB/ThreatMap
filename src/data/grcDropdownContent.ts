@@ -406,37 +406,111 @@ Business Advantages:
     iso27001: {
       title: "ISO 27001 Implementation & Audit Readiness",
       content: `
-        // PASTE CONTENT HERE from RNR website dropdown
+What it is
+ISO/IEC 27001 helps you build and run an Information Security Management System (ISMS) to manage risks, controls, and continuous improvement. We support end-to-end implementation and audit readiness—practical, evidence-driven, and aligned to your business.
+
+Methodology
+- Scope and context definition (assets, processes, boundaries)
+- Risk assessment and treatment plan aligned to business priorities
+- ISMS documentation set (policies, SoA, procedures, records)
+- Control implementation guidance and evidence collection
+- Internal audit support and management review preparation
+- Pre-certification readiness review and remediation tracking
+
+Deliverables
+- ISMS documentation pack + Statement of Applicability (SoA)
+- Risk register, treatment plan, and control evidence checklist
+- Audit readiness report and prioritized remediation roadmap
       `
     },
     rbiCompliance: {
       title: "RBI UCB/SCB Cyber Security Framework Compliance",
       content: `
-        // PASTE CONTENT HERE from RNR website dropdown
+What it is
+Support for aligning your cybersecurity program with RBI cyber security expectations (including governance, controls, monitoring, and reporting) for regulated banking environments.
+
+Methodology
+- Current-state assessment of policies, controls, and operational practices
+- Gap analysis across governance, access controls, monitoring, incident response, and third-party risk
+- Security architecture and control enhancement recommendations
+- Evidence mapping and compliance reporting structure
+
+Deliverables
+- RBI-aligned gap assessment and remediation plan
+- Compliance evidence checklist and reporting templates
+- Executive briefing for leadership and stakeholders
       `
     },
     sebiCompliance: {
       title: "SEBI Cyber Security & Cyber Resilience Compliance (for stockbrokers, exchanges, etc.)",
       content: `
-        // PASTE CONTENT HERE from RNR website dropdown
+What it is
+Cybersecurity and resilience advisory for SEBI-regulated entities to strengthen governance, operational security controls, and incident readiness.
+
+Methodology
+- Baseline maturity assessment and regulatory gap analysis
+- Security control hardening (identity, endpoint, network, logging)
+- Incident response and resilience planning (playbooks, drills)
+- Vendor and technology risk reviews for critical service providers
+
+Deliverables
+- SEBI-aligned assessment report and remediation roadmap
+- Security & resilience artifacts (runbooks, evidence mapping)
+- Support for audit/assessment responses as needed
       `
     },
     certInGuidelines: {
       title: "CERT-In Guidelines (Application, Cloud, Infra Security)",
       content: `
-        // PASTE CONTENT HERE from RNR website dropdown
+What it is
+Advisory and implementation support to operationalize CERT-In directives and good practices across application, cloud, and infrastructure security, including logging, incident handling, and security hygiene.
+
+Methodology
+- Baseline review of logging, monitoring, IR processes, and asset inventory
+- Gap analysis and implementation plan for operational requirements
+- Control improvements across identity, endpoint, network, and cloud configurations
+- Incident response readiness and reporting workflows
+
+Deliverables
+- CERT-In readiness report and actionable remediation plan
+- Logging/monitoring requirements checklist and evidence mapping
+- IR workflow, escalation matrix, and reporting readiness guidance
       `
     },
     gdprHipaa: {
       title: "GDPR, HIPAA, SOC 2, PCI-DSS Advisory",
       content: `
-        // PASTE CONTENT HERE from RNR website dropdown
+What it is
+Compliance advisory to help you meet requirements across privacy, security, and assurance frameworks. We translate requirements into implementable controls and evidence, aligned to your products and operations.
+
+Methodology
+- Scope definition (systems, data flows, third parties)
+- Gap analysis against the target framework(s)
+- Policy and control implementation guidance (access, logging, encryption, vendor controls)
+- Evidence and audit preparation (tests, reports, procedures)
+
+Deliverables
+- Framework-specific gap report and remediation roadmap
+- Control evidence checklist and documentation guidance
+- Audit/attestation preparation support (as applicable)
       `
     },
     auditSupport: {
       title: "Internal & External IT Audit Support",
       content: `
-        // PASTE CONTENT HERE from RNR website dropdown
+What it is
+Hands-on support for internal audits and external assessments—planning, evidence readiness, control testing, remediation tracking, and stakeholder communication.
+
+Methodology
+- Audit scoping and control mapping to standards/policies
+- Evidence collection, sampling, and control operating effectiveness testing
+- Finding management: severity, root cause, and action plans
+- Management reporting and closure validation
+
+Deliverables
+- Audit plan, test procedures, and working papers (as applicable)
+- Findings register with corrective action plan tracking
+- Executive-ready summaries and closure validation notes
       `
     }
   }

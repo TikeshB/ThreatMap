@@ -1,8 +1,127 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Shield, ArrowRight, CheckCircle } from "lucide-react";
+import { Shield, ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Button } from "@/components/ui/button";
+import { ServiceModulesAccordion } from "@/components/ServiceModulesAccordion";
+
+const vcisoModules = [
+  {
+    id: "security-leadership",
+    title: "Security Leadership & Governance",
+    sections: {
+      "What is it?":
+        "Senior cybersecurity leadership delivered as a service—helping you establish governance, decision-making, and accountability without needing a full-time in-house CISO.",
+      "Why it matters": [
+        "Security programs fail without clear ownership and governance.",
+        "Leaders need a consistent view of risk and priorities.",
+        "Well-defined governance reduces reactive, ad-hoc security decisions.",
+      ],
+      "Methodology of RNR": [
+        "Understand business objectives, threat landscape, and risk appetite.",
+        "Define governance structure, roles, and operating cadence.",
+        "Establish policies and standards aligned to business realities.",
+      ],
+      Deliverables: [
+        "Governance operating model (cadence, roles, escalation)",
+        "Policy/standard recommendations and ownership model",
+        "Quarterly priorities and risk focus areas",
+      ],
+    },
+  },
+  {
+    id: "roadmap",
+    title: "Cybersecurity Strategy & Roadmap",
+    sections: {
+      "What is it?":
+        "A practical, phased security roadmap that aligns initiatives to your business goals, risk exposure, and budget—so progress is measurable and sustainable.",
+      "Why it matters": [
+        "Avoids scattered tooling and unprioritized security work.",
+        "Creates a clear plan leadership can fund and track.",
+        "Improves security maturity systematically over time.",
+      ],
+      "Methodology of RNR": [
+        "Assess current posture across people/process/technology.",
+        "Identify gaps and risk hot-spots.",
+        "Create a prioritized roadmap with quick wins and long-term initiatives.",
+      ],
+      Deliverables: [
+        "Strategy brief and target-state guidance",
+        "Prioritized roadmap and milestones",
+        "KPIs/KRIs and tracking recommendations",
+      ],
+    },
+  },
+  {
+    id: "risk-compliance",
+    title: "Risk & Compliance Oversight",
+    sections: {
+      "What is it?":
+        "Ongoing support to manage cyber risk and maintain compliance readiness—covering risk registers, control monitoring, and audit preparation.",
+      "Why it matters": [
+        "Reduces audit surprises and control drift.",
+        "Improves visibility into priority risks and remediation status.",
+        "Aligns security controls to regulatory and contractual expectations.",
+      ],
+      "Methodology of RNR": [
+        "Maintain risk register and remediation tracking.",
+        "Review control effectiveness and evidence readiness.",
+        "Support internal/external audit coordination and action closure.",
+      ],
+      Deliverables: [
+        "Risk register governance and periodic reporting",
+        "Audit readiness checklists and evidence approach",
+        "Remediation tracking and closure verification",
+      ],
+    },
+  },
+  {
+    id: "board-reporting",
+    title: "Executive & Board Reporting",
+    sections: {
+      "What is it?":
+        "Clear, decision-ready reporting that translates security posture into business risk—so leadership can make informed investment and priority decisions.",
+      "Why it matters": [
+        "Leaders need actionable insight, not raw technical metrics.",
+        "Creates alignment between business priorities and security spend.",
+        "Helps track maturity improvements over time.",
+      ],
+      "Methodology of RNR": [
+        "Define KPIs/KRIs aligned to business and risk appetite.",
+        "Build concise dashboards and narrative reporting.",
+        "Review trends, key incidents, and remediation progress.",
+      ],
+      Deliverables: [
+        "Executive security dashboard recommendations",
+        "Monthly/quarterly leadership reporting pack",
+        "Priority actions and decisions required",
+      ],
+    },
+  },
+  {
+    id: "incident-readiness",
+    title: "Incident Readiness & Response Advisory",
+    sections: {
+      "What is it?":
+        "Preparedness planning to improve how your organization detects, responds to, and recovers from incidents—through playbooks, roles, and exercises.",
+      "Why it matters": [
+        "Reduces downtime and impact when incidents occur.",
+        "Improves coordination across IT, security, legal, and business teams.",
+        "Strengthens learning loops via post-incident reviews.",
+      ],
+      "Methodology of RNR": [
+        "Review current IR processes and tooling.",
+        "Create or refine response playbooks and escalation.",
+        "Run tabletop simulations and improve based on outcomes.",
+      ],
+      Deliverables: [
+        "Incident response playbooks and escalation matrix",
+        "Tabletop exercise plan and improvement actions",
+        "Post-incident review checklist and metrics",
+      ],
+    },
+  },
+];
 
 export default function VCISOService() {
   return (
@@ -29,12 +148,7 @@ export default function VCISOService() {
             <div className="space-y-12">
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-2xl bg-muted/30 border border-border/40 p-8">
                 <h3 className="text-2xl font-bold text-foreground mb-6">vCISO Services</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" /><span className="text-muted-foreground">What is vCISO?</span></li>
-                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" /><span className="text-muted-foreground">Methodology</span></li>
-                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" /><span className="text-muted-foreground">Why is it important?</span></li>
-                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" /><span className="text-muted-foreground">What RNR Provides as Your vCISO Partner</span></li>
-                </ul>
+                <ServiceModulesAccordion modules={vcisoModules} />
               </motion.div>
             </div>
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-12 flex flex-wrap gap-4">
