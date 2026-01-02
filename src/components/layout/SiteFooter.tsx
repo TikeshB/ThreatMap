@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Github } from "lucide-react";
 import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 import LogoLight from "@/data/image.png";
 import LogoDark from "@/data/imagedarktheme.png";
 
@@ -60,7 +61,10 @@ export const SiteFooter = () => {
               <img
                 src={isDark ? LogoDark : LogoLight}
                 alt="RNR logo"
-                className="h-10 w-auto object-contain drop-shadow-lg"
+                className={cn(
+                  "h-10 w-auto object-contain drop-shadow-lg",
+                  isDark && "scale-110"
+                )}
               />
             </Link>
             <p className="text-muted-foreground text-sm mb-6 max-w-xs">

@@ -107,7 +107,12 @@ export const Navbar = () => {
               <img
                 src={theme === "dark" ? LogoDark : LogoLight}
                 alt="Company logo"
-                className="h-10 w-auto object-contain drop-shadow-lg transition-transform group-hover:scale-105"
+                className={cn(
+                  "h-10 w-auto object-contain drop-shadow-lg transition-transform",
+                  theme === "dark"
+                    ? "scale-110 group-hover:scale-[1.15]"
+                    : "group-hover:scale-105"
+                )}
               />
             </div>
           </Link>
